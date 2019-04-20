@@ -1,0 +1,147 @@
+{
+	"window":
+	{
+		"resizable": true,
+		"scale": 0.6,
+		"title": "Wer wird Informatiker?",
+		"undecorated": false,
+	},
+
+	"game":
+	{
+		"fps": 24,
+
+	},
+
+	"gui":
+	{
+		"menu":
+		{
+			"button_labels": [ "Start", "Add Questions", "Quit" ],
+			"button_label_color": "#FFFFFF",
+			
+			"button_border_thickness": 0.02,
+			"button_border_color" : "#FFFFFF",
+
+			"button_font_name": "Calibri",
+			"button_font_size": 0.05,
+			"button_font_style": 0,
+
+			"button_arc": 0.8,
+			"button_dy": 0.15,
+			"button_height": 0.1,
+			"button_width": 0.8,
+			"button_x": 0.1,
+			"button_y": 0.55,
+
+			"image_x": 0.1,
+			"image_y": 0.1,
+			"image_width": 0.80,
+			"image_height": 0.30,
+		},
+
+		"play":
+		{
+			"button_label_color": "#FFFFFF",
+			
+			"button_border_color" : "#EEEEEE",
+			"button_border_thickness": 0.02,			
+			
+			"button_font_name": "Calibri",
+			"button_font_style": 0,
+			"button_font_size": 0.5,
+			
+			"button_dx": 0.5,
+			"button_dy": 0.125,
+			"button_height": 0.07,
+			"button_width": 0.45,
+			"button_x": 0.025,
+			"button_y": 0.75,
+
+			"question_label_color": "#FFFFFF",
+			
+			"question_border_color" : "#DDEEDD",
+			"question_border_thickness": 0.025,
+
+			"question_font_name": "Calibri",
+			"question_font_size": 0.225,
+			"question_font_style": 0,
+
+			"question_height": 0.15,
+			"question_width": 0.9,
+			"question_x": 0.05,
+			"question_y": 0.55,
+			
+			"score_labels": [ "50", "100", "200", "300",
+					 "500", "1.000", "2.000", "4.000", "8.000",
+					 "16.000", "32.000", "64.000", "125.000", "500.000", "1.000.000" ],
+			"score_label_color": "#FFFFFF",	
+
+			"score_border_color" : "#DDEEDD",
+			"score_border_thickness": 0.004,
+
+			"score_font_name": "Calibri",
+			"score_font_style": 0,	
+			"score_font_size": 0.05,
+
+			"score_dy": 0.06, 
+			"score_y": 0.0,
+
+			"score_marker_x": 0.05,	
+			"score_marker_width": 0.05,
+
+			"slider_width": 0.2,
+			"slider_speed": 2.0,
+
+			"round_label_color" : "#FFFFFF",
+
+			"round_font_name": "Calibri",
+			"round_font_style": 0,	
+			"round_font_size": 0.08,	
+
+			"joker_x": 0.05,
+			"joker_y": 0.025,
+			"joker_width": 0.225,
+			"joker_height": 0.065,
+			"joker_arc": 0.4,
+			"joker_dx": 0.35,
+			
+			"image_x": 0.3625,
+			"image_y": 0.0125,
+			"image_scale": 0.275,
+
+			"focus_color": "#000000",
+			"focus_alpha": 0.35,
+
+			"line_color": "#FFFFFF",
+		},
+		
+		"end":
+		{
+			"label_color": "#FFFFFF",
+
+			"label_y": 0.5,	
+
+			"label_font_name": "Calibri",
+			"label_font_style": 0,	
+			"label_font_size": 0.05,
+
+			"button_color": "#6699FF",
+			"button_color_selected" : "#3F4FFF",
+			
+			"button_border_thickness": 0.004,
+			"button_border_color" : "#FFFFFF",
+
+			"button_font_name": "Calibri",
+			"button_font_size": 0.05,
+			"button_font_style": 0,
+
+			"button_arc": 0.8,
+			"button_height": 0.1,
+			"button_width": 0.5,
+			"button_y": 0.75,
+
+			"button_label": "Quit",
+		},	
+	},
+}
