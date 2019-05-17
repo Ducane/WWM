@@ -11,7 +11,6 @@ import de.androbin.shell.input.*;
 import de.ducane.wwm.gfx.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.font.*;
 import java.awt.geom.*;
 import java.io.*;
 import java.nio.file.*;
@@ -112,7 +111,7 @@ public final class MenuScreen extends AbstractShell implements AWTGraphics {
   
   private void loadResources() {
     rm.loadImage( "menu_background", "menu_background.png" );
-    rm.loadImage( "ohm_background",  "ohm_background.png" );
+    rm.loadImage( "ohm_background", "ohm_background.png" );
     
     rm.loadImage( "button", "button.png" );
     rm.loadImage( "button_selected", "button_selected.png" );
@@ -317,8 +316,9 @@ public final class MenuScreen extends AbstractShell implements AWTGraphics {
     private class Background {
       public void render( final Graphics2D g, final Layout.Background layout ) {
         g.drawImage( rm.getImage( "menu_background" ), 0, 0, getWidth(), getHeight(), null );
-        g.drawImage( rm.getImage( "ohm_background" ), layout.image_x, layout.image_y, layout.image_width,
-         layout.image_height, null );
+        g.drawImage( rm.getImage( "ohm_background" ), layout.image_x, layout.image_y,
+            layout.image_width,
+            layout.image_height, null );
       }
     }
   }

@@ -31,9 +31,9 @@ public final class PlayScreen extends AbstractShell implements AWTGraphics {
   private static final int BUTTON_LENGTH = 4;
   private static final int JOKER_LENGTH = 3;
   
-  private static final String[] RIGHT_SOUNDS = fill( new String[ 3 ],
+  private static final String[] RIGHT_SOUNDS = fill( new String[ 4 ],
       i -> "richtig_stufe_" + ( i + 1 ) + ".wav" );
-  private static final String[] LEVELS = fill( new String[ 3 ],
+  private static final String[] LEVELS = fill( new String[ 4 ],
       i -> "stufe_" + ( i + 1 ) + ".wav" );
   private static final String[] JOKERS = fill( new String[ 3 ], i -> "joker_" + i + ".png" );
   
@@ -291,7 +291,7 @@ public final class PlayScreen extends AbstractShell implements AWTGraphics {
   
   private void nextQuestion() {
     if ( round < SCORE_LABELS.length ) {
-      difficulty = round / 5;
+      difficulty = round == SCORE_LABELS.length - 1 ? 3 : round / 5;
       
       final Question current = randomElement( difficulties.get( difficulty ), null );
       currentQuestion = current;
@@ -1124,9 +1124,35 @@ public final class PlayScreen extends AbstractShell implements AWTGraphics {
         g.drawString( round, ( getWidth() - fm.stringWidth( round ) ) / 2,
             layout_buttons.y + layout_buttons.dy );
         
-        final BufferedImage wwm = (BufferedImage) rm.getImage( "play_image" );
-        g.drawImage( wwm, layout_background.image_x, layout_background.image_y,
-            layout_background.image_scale, layout_background.image_scale, null );
+        final BufferedImage image;
+        
+        if ( currentQuestion.image == null ) {
+          image = (BufferedImage) rm.getImage( "play_image" );
+          
+          // TODO: Deprecated
+          // g.drawImage( image, layout_background.image_x, layout_background.image_y,
+          // layout_background.image_scale, layout_background.image_scale, null );
+          
+        } else {
+          image = currentQuestion.image;
+        }
+        
+        final float srcWidth = image.getWidth();
+        final float srcHeight = image.getHeight();
+        
+        final float destWidth = getWidth() * 0.95f;
+        final float destHeight = getHeight() * 0.5f;
+        
+        final float scale = Math.min( destWidth / srcWidth, destHeight / srcHeight );
+        
+        final int width = (int) ( srcWidth * scale );
+        final int height = (int) ( srcHeight * scale );
+        
+        final int x = (int) ( ( destWidth - width ) / 2f + 0.025f * getWidth() );
+        final int y = (int) ( ( destHeight - height ) / 2f + 0.025f * getHeight() );
+        
+        g.drawImage( image, x, y, width, height, null );
+        
       }
       
       public void updateData( final Layout.Background layout_background,

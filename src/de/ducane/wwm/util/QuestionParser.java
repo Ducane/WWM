@@ -2,7 +2,10 @@ package de.ducane.wwm.util;
 
 import de.androbin.json.*;
 import de.ducane.wwm.*;
+import java.awt.image.*;
+import java.net.*;
 import java.util.*;
+import javax.imageio.*;
 
 public final class QuestionParser {
   private QuestionParser() {
@@ -20,13 +23,22 @@ public final class QuestionParser {
       final XObject x = o.asObject();
       
       final String question = x.get( "question" ).asString();
-      
       String[] answers = x.get( "answers" ).asStringArray();
       
       final int correctAnswer = x.get( "correctAnswer" ).asInt();
       final int difficulty = x.get( "difficulty" ).asInt();
+      final String imageURL = x.get( "imageURL" ).asString();
       
-      difficulties.get( difficulty - 1 ).add( new Question( question, answers, correctAnswer ) );
+      URL url = null;
+      BufferedImage image = null;
+      try {
+        url = new URL( imageURL );
+        image = ImageIO.read( url );
+      } catch ( final Exception ignore ) {
+      }
+      
+      final List<Question> difficultyList = difficulties.get( difficulty - 1 );
+      difficultyList.add( new Question( question, answers, correctAnswer, image ) );
     } );
     
     return difficulties;
